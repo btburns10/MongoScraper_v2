@@ -14,6 +14,12 @@ const ArticleSchema = new Schema({
     required: false,
     trim: true
   },
+  img: {
+    type: String
+  },
+  date: {
+    type: Date
+  },
   link: {
     type: String,
     required: false,
