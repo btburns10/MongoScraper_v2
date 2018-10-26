@@ -10,20 +10,21 @@ class SearchResultContainer extends Component {
   };
 
   componentDidMount() {
-    this.searchNYTimes('trump');
+    this.searchNYTimes('football');
   }
 
   searchNYTimes = query => {
+    console.log(query);
     API.search(query)
       .then(res => this.setState({ results: res.data.response.docs }))
       .catch(err => console.log(err));
   };
-
+  
   handleInputChange = event => {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value
+      [name]: value.join("+")
     });
   };
 
