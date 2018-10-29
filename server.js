@@ -1,24 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const routes = require("./controllers/articles_controller");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use(routes);
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytimesdb";
-
 mongoose.connect(MONGODB_URI);
-
-//run our server side route controllers with Express
-require("./controllers/articles_controller.js")(app);
-require("./controllers/saved_controller.js")(app);
 
 
 app.listen(PORT, function() {
-  console.log("App running on PORT:" + PORT);
+  console.log(`App now running on PORT ${PORT}`);
 });
 
 

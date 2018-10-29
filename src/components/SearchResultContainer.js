@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
-import ResultList from "./ResultList";
+import Articles from "./Articles";
 import API from "../utils/API.js";
 
 class SearchResultContainer extends Component {
   state = {
     search: '',
-    results: []
+    articles: []
   };
 
   componentDidMount() {
@@ -16,7 +16,7 @@ class SearchResultContainer extends Component {
   searchNYTimes = query => {
     console.log(query);
     API.search(query)
-      .then(res => this.setState({ results: res.data.response.docs }))
+      .then(res => this.setState({ articles: res.data.response.docs }))
       .catch(err => console.log(err));
   };
   
@@ -24,7 +24,7 @@ class SearchResultContainer extends Component {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value.join("+")
+      [name]: value
     });
   };
 
@@ -42,8 +42,8 @@ class SearchResultContainer extends Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
-        <ResultList 
-          results={this.state.results}
+        <Articles 
+          articles={this.state.articles}
         />
       </div>
     )

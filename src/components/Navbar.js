@@ -8,7 +8,9 @@ const Navbar = (props) => (
     <ul id='nav-mobile' className='left hide-on-med-and-down'>
       <li><a href='/'>Home</a></li>
       <li><a href='/articles/saved'>Saved Articles</a></li>
-      <li><a onClick={() => console.log('getArticles func')} className='waves-effect waves-light btn #4fc3f7 light-blue lighten-2' href='/'><i className='material-icons'>refresh</i></a></li>
+      <li><a onClick={() => console.log('getArticles func')} className='waves-effect waves-light btn #4fc3f7 light-blue lighten-2' href='/'>
+        <i className='material-icons'>refresh</i></a>
+      </li>
     </ul>
   </div>
 </nav>

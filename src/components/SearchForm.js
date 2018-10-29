@@ -3,7 +3,6 @@ import React from "react";
 const SearchForm = props => (
   <form>
     <div>
-      <label htmlFor="search">Search:</label>
       <input
         onChange={props.handleInputChange}
         value={props.search}
@@ -14,6 +13,7 @@ const SearchForm = props => (
         id="search"
       />
       <button
+        className="btn #bbdefb blue lighten-2"
         onClick={props.handleFormSubmit}
       >
         Search
