@@ -16,7 +16,7 @@ class SavedArticles extends Component {
 
   render() {
     return(
-      <div>
+      <div className="container">
         {this.state.articles.map(article => {
           return <SavedArticle key={article._id} article={article} />
         })}
