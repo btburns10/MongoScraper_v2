@@ -13,17 +13,17 @@ saveArticle = () => {
     link: this.props.article.web_url
   };
 
-  axios.post("/articles/saved", article)
+  axios.post("/api/articles", article)
       .then(res => console.log("article saved!"))
       .catch(err => console.log(err));
 }
 
 render() {
   return(
-    <div className="col s12 m6 l4" key={this.props.article._id}>
+    <div className="col s12 l4" key={this.props.article._id}>
       <div className="card" data-attr={this.props.article._id}>
         <div className="card-image waves-effect waves-block waves-light">
-          <img 
+          <img className="image"
             alt={this.props.article.headline.print_headline}
             src={this.props.article.multimedia[14] ? "http://www.nytimes.com/" + this.props.article.multimedia[14].url : "no-image-found.gif"}
           />

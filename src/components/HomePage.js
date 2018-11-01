@@ -3,7 +3,7 @@ import SearchForm from "./SearchForm";
 import Articles from "./Articles";
 import API from "../utils/API.js";
 
-class SearchResultContainer extends Component {
+class HomePage extends Component {
   state = {
     search: '',
     articles: []
@@ -16,7 +16,7 @@ class SearchResultContainer extends Component {
   searchNYTimes = query => {
     console.log(query);
     API.search(query)
-      .then(res => this.setState({ articles: res.data.response.docs }))
+      .then(res => this.setState({ articles: res.data.response.docs.filter(item => item.multimedia[14]) }))
       .catch(err => console.log(err));
   };
   
@@ -51,4 +51,4 @@ class SearchResultContainer extends Component {
 
 };
 
-export default SearchResultContainer;
+export default HomePage;

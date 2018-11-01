@@ -1,3 +1,22 @@
+.card {
+  height: 560px;
+}
+
+.card-image img{
+  height: 285px;
+}
+
+.card-title {
+  height: 64px;
+  overflow: hidden;
+}
+
+.card-content p:first-of-type {
+  height: 110px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .icon {
   cursor: pointer;
 }
