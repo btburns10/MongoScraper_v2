@@ -10,7 +10,7 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    this.searchNYTimes('football');
+    this.searchNYTimes('world news');
   }
 
   searchNYTimes = query => {

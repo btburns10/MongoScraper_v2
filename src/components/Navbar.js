@@ -7,8 +7,8 @@ const Navbar = (props) => (
     <a href='/' className='brand-logo right'>NY Times News</a>
     <ul id='nav-mobile' className='left hide-on-med-and-down'>
       <li><a href='/'>Home</a></li>
-      <li><a href='/articles/saved'>Saved Articles</a></li>
-      <li><a onClick={() => console.log('getArticles func')} className='waves-effect waves-light btn #4fc3f7 light-blue lighten-2' href='/'>
+      <li><a href='/api/articles'>Saved Articles</a></li>
+      <li><a href='/' className='waves-effect waves-light btn #4fc3f7 light-blue lighten-2'>
         <i className='material-icons'>refresh</i></a>
       </li>
     </ul>
