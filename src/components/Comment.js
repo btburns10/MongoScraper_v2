@@ -42,7 +42,11 @@ class Comment extends Component {
                 </button>}
         actions={
                   <div>
-                    <Button onClick={() => this.handleSaveNote(this.props.article._id)} className="teal" flat modal="close" waves="light" style={{color: "white"}}>Save</Button>
+                    {this.props.article.note ? 
+                      <Button className="teal" flat modal="close" waves="light" style={{color: "white"}}>Close</Button>
+                      :
+                      <Button onClick={() => this.handleSaveNote(this.props.article._id)} className="teal" flat modal="close" waves="light" style={{color: "white"}}>Save</Button>
+                    }
                   </div>
                 }
         >
