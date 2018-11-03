@@ -11,6 +11,7 @@ app.use(express.static("public"));
 
 app.use(routes);
 
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytimesdb";
 mongoose.connect(MONGODB_URI);
 
