@@ -3,15 +3,32 @@ import { Modal, Button } from "react-materialize";
 import axios from "axios";
 
 class Comment extends Component {
+  constructor(props) {
+    super(props)
 
- state = {
-   comment: []
- }
+    this.state = {
+      note: []
+    }
+  }
 
   componentDidMount() {
-    // axios.get("/api/articles/" + this.state.comments[0])
-    //   .then(res => this.setState({ comments: res.data }))
-    //   .catch(err => console.log(err))
+    console.log(this.props.article.note);
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSaveNote = (id) => {
+    const note = {body: this.state.note};
+
+    axios.post("/api/articles/" + id, note)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -25,19 +42,21 @@ class Comment extends Component {
                 </button>}
         actions={
                   <div>
-                    <Button className="teal" flat modal="close" waves="light" style={{color: "white"}}>Save</Button>
+                    <Button onClick={() => this.handleSaveNote(this.props.article._id)} className="teal" flat modal="close" waves="light" style={{color: "white"}}>Save</Button>
                   </div>
                 }
         >
-        <textarea style={{height: 250}}
-        onChange={this.props.handleInputChange}
-        value={this.props.note}
-        name="note"
-        type="text"
-        className="form-control"
-        placeholder="type notes here"
-        id="noteModal"
-      />
+        {this.props.article.note ? <p>{this.props.article.note.body}</p> :
+          <textarea style={{height: 250}}
+            onChange={this.handleInputChange}
+            value={this.state.note}
+            name="note"
+            type="text"
+            className="form-control"
+            placeholder="type notes here"
+            id="noteModal"
+          /> 
+        }
       </Modal>
       </div>
     )

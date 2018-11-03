@@ -17,6 +17,21 @@ router.get("/api/articles", (req, res) => {
     .catch(err => console.log(err))
 });
 
+router.post("/api/articles/:id", function(req, res) {
+  console.log("route hit!");
+  db.Note
+    .create(req.body)
+    .then(function(dbNote) {
+      return db.Article.findOneAndUpdate({_id: req.params.id}, {note: dbNote._id}, {new: true});
+    })
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 
 module.exports = router;
 

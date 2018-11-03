@@ -14,7 +14,6 @@ class HomePage extends Component {
   }
 
   searchNYTimes = query => {
-    console.log(query);
     API.search(query)
       .then(res => this.setState({ articles: res.data.response.docs.filter(item => item.multimedia[14]) }))
       .catch(err => console.log(err));
